@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NatSNB68 | Étudiant engagé</title>
+    <meta name="description" content="Portfolio de Nathan, étudiant engagé en informatique et cybersécurité. Découvrez ses projets, ses engagements et ses moyens de contact.">
+    <meta name="keywords" content="NatSNB68, NathanSNB68, informatique, cybersécurité, Bento">
+    <meta name="author" content="Nathan">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0a0a0e">
+    <link rel="canonical" href="https://nathan.mathysie.eu/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="NatSNB68 | Étudiant engagé">
+    <meta property="og:description" content="Portfolio de NatSNB68, étudiant engagé en informatique et cybersécurité.">
+    <meta property="og:url" content="https://nathan.mathysie.eu/">
+    <meta property="og:image" content="https://nathan.mathysie.eu/Utils/PP.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nathan | Étudiant engagé">
+    <meta name="twitter:description" content="Portfolio de Nathan, étudiant engagé en informatique et cybersécurité.">
+    <meta name="twitter:image" content="https://nathan.mathysie.eu/Utils/PP.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Utils/PP.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nathan",
+        "jobTitle": "Étudiant en informatique",
+        "description": "Étudiant engagé en informatique et cybersécurité.",
+        "url": "https://nathan.mathysie.eu/",
+        "image": "https://nathan.mathysie.eu/Utils/PP.png",
+        "sameAs": [
+            "https://www.linkedin.com/in/nathan-nathan-513387341/",
+            "https://github.com/NathanSNB"
+        ]
+    }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        :root {
+            --bg-deep: #0a0a0e;
+            --text-light: #f8fafc;
+            --text-dark: #0f172a;
+            --radius-app: 32px;
+            --radius-card: 24px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem;
+            padding-bottom: 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .nav-links a {
+            font-family: 'DynaPuff', cursive;
+        }
+
+        .background-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(192, 132, 252, 0.15), transparent 30%),
+                radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.1), transparent 40%);
+            filter: blur(60px);
+        }
+
+        .app-container {
+            background-color: rgba(24, 24, 27, 0.65);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: var(--radius-app);
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 1100px;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 
+                        0 0 0 1px rgba(255, 255, 255, 0.05); 
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-light);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            width: 100%;
+        }
+
+        /* --- Style des cartes avec effet Spotlight --- */
+        .card {
+            border-radius: var(--radius-card);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            
+            /* Pour l'animation d'entrée en cascade */
+            opacity: 0;
+            animation: cardEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* L'effet de lueur (Spotlight) qui suit la souris */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(400px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255,255,255,0.15), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-4px) scale(0.995);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Contenu des cartes au-dessus du spotlight */
+        .card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Délais d'animation en cascade */
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.15s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+        .card:nth-child(4) { animation-delay: 0.25s; }
+        .card:nth-child(5) { animation-delay: 0.3s; }
+        .card:nth-child(6) { animation-delay: 0.35s; }
+        .card:nth-child(7) { animation-delay: 0.4s; }
+
+        @keyframes cardEnter {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Thèmes de couleur */
+        .theme-orange { background-color: rgba(249, 115, 22, 0.85); color: var(--text-dark); }
+        .theme-yellow { background-color: rgba(253, 224, 71, 0.85); color: var(--text-dark); border-color: rgba(0,0,0,0.05); }
+        .theme-cyan   { background-color: rgba(103, 232, 249, 0.85); color: var(--text-dark); }
+        .theme-purple { background-color: rgba(192, 132, 252, 0.85); color: var(--text-dark); }
+        .theme-blue   { background-color: rgba(59, 130, 246, 0.85); color: var(--text-light); }
+        .theme-dark   { background-color: rgba(39, 39, 42, 0.75); color: var(--text-light); }
+        
+        .theme-image  { 
+            background-color: #e5e5e5; 
+            padding: 0; 
+            background-image: url('Utils/PP.png'); 
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card-photo:focus-visible {
+            outline: 3px solid rgba(255, 255, 255, 0.75);
+            outline-offset: 4px;
+        }
+
+        .card h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .sub-text { font-size: 0.95rem; opacity: 0.85; line-height: 1.5; font-weight: 500; }
+
+        /* --- Bouton d'action circulaire (Conforme à ta capture) --- */
+        .circle-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.12); /* Foncé et sans bordure */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .theme-dark .circle-btn, .theme-blue .circle-btn {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .circle-btn:hover {
+            background: rgba(0, 0, 0, 0.25);
+            transform: scale(1.05) rotate(45deg);
+        }
+        
+        .theme-dark .circle-btn:hover, .theme-blue .circle-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Grille Réseaux Sociaux */
+        .socials-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; height: 100%; margin-top: 1rem;
+        }
+        .social-icon-box {
+            background: rgba(255,255,255,0.15); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: var(--transition);
+        }
+        .social-icon-box:hover { background: #fff; color: var(--text-dark); transform: scale(1.05); }
+
+        /* Liste GitHub */
+        .github-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;}
+        .github-item { background: rgba(0,0,0,0.05); padding: 0.75rem; border-radius: 12px; transition: var(--transition); }
+        .github-item:hover { background: rgba(0,0,0,0.1); transform: translateX(4px); }
+        .github-item a { color: inherit; text-decoration: none; font-weight: 700; font-size: 0.95rem; display: block;}
+        .github-tech { font-size: 0.75rem; background: rgba(0,0,0,0.1); padding: 0.2rem 0.5rem; border-radius: 8px; margin-top: 0.25rem; display: inline-block; font-weight: 600;}
+        .card-projects .github-item { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 24px -18px rgba(0,0,0,0.75); }
+        .card-projects .github-item:hover { background: rgba(255,255,255,0.26); }
+        .card-projects .github-item a { color: var(--text-dark); }
+        .card-projects .github-item p { color: rgba(15, 23, 42, 0.72); }
+
+        /* Timeline / Engagements */
+        .timeline { margin-top: 1rem; display: flex; flex-direction: column; gap: 1.25rem; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 5px; top: 5px; bottom: 5px; width: 2px; background: rgba(255,255,255,0.1); }
+        .tl-item { position: relative; padding-left: 1.5rem; transition: var(--transition); }
+        .tl-item:hover { transform: translateX(5px); }
+        .tl-item::before { content: ''; position: absolute; left: 0; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--text-light); box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        .tl-title { font-weight: 700; font-size: 0.95rem; }
+        .tl-date { font-size: 0.8rem; color: var(--accent-color); opacity: 0.7; font-weight: 600; }
+        .tl-desc { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.2rem; }
+
+        /* Compétences (Bulbs/Tags) */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+        .skill-tag {
+            background: rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 0, 0, 0.15); padding: 0.4rem 0.8rem;
+            border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); transition: var(--transition); cursor: default;
+        }
+        .skill-tag:hover { background: rgba(0, 0, 0, 0.9); color: #fff; transform: translateY(-3px) scale(1.05); }
+
+        .contact-actions {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin-top: auto;
+        }
+
+        /* Boutons d'action standards */
+        .action-btn {
+            background: transparent; border: 1px solid rgba(0,0,0,0.2); padding: 0.75rem 1rem; border-radius: 12px;
+            font-family: inherit; font-weight: 600; color: inherit; cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+        }
+        .action-btn:hover { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.4); transform: scale(1.02); }
+        .theme-dark .action-btn { border-color: rgba(255,255,255,0.2); }
+        .theme-dark .action-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+
+        @media (min-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(180px, auto); }
+            .card-bio { grid-column: span 2; grid-row: span 1; }
+            .card-photo { grid-column: span 1; grid-row: span 1; }
+            .card-socials { grid-column: span 1; grid-row: span 1; }
+            .card-projects { grid-column: span 2; grid-row: span 2; }
+            .card-timeline { grid-column: span 2; grid-row: span 2; }
+            .card-contact { grid-column: span 2; }
+            .card-skills { grid-column: span 2; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .background-blobs {
+                filter: none;
+            }
+
+            .card:hover,
+            .tl-item:hover,
+            .github-item:hover,
+            .social-icon-box:hover,
+            .skill-tag:hover,
+            .action-btn:hover {
+                transform: none;
+            }
+
+            .card::before {
+                opacity: 0 !important;
+            }
+        }
+
+        .hidden { display: none !important; }
+
+        /* Styles spécifiques Utils (Générateur QR Avancé) */
+        .qr-controls {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 16px;
+        }
+        .control-group { display: flex; flex-direction: column; gap: 0.25rem; }
+        .control-group label { font-size: 0.8rem; opacity: 0.8; font-weight: 600; }
+        .qr-controls input[type="color"] { width: 100%; height: 35px; border: none; border-radius: 8px; cursor: pointer; background: transparent; }
+        .qr-controls input[type="range"] { width: 100%; cursor: pointer; accent-color: var(--text-light); }
+        
+        .input-group input[type="text"] {
+            width: 100%; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; font-family: 'Outfit'; font-size: 1rem; margin-bottom: 1rem; outline: none; transition: var(--transition);
+        }
+        .input-group input[type="text"]:focus { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); }
+        
+        .btn-primary {
+            width: 100%; padding: 1rem; border-radius: 12px; border: none; background: #fff; color: #000; font-family: 'Outfit'; font-weight: 700; cursor: pointer; transition: var(--transition);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(255,255,255,0.2); }
+        
+        #qrcode { display: flex; justify-content: center; align-items: center; background: #fff; padding: 2rem; border-radius: 16px; margin-top: 1rem; min-height: 200px; transition: var(--transition); }
+    </style>
+</head>
+<body>
+
+    <div class="background-blobs"></div>
+
+    <div class="app-container">
+        <header>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #f87171;"></div>
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #facc15;"></div>
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #4ade80;"></div>
+            </div>
+            <nav class="nav-links">
+                <a href="Index.html" id="nav-home" class="active">Bento</a>
+                <a href="utils.html" id="nav-utils">Utils</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home-view">
+                <div class="bento-grid">
+                    
+                    <!-- CARTE 1 : BIO -->
+                    <article class="card theme-orange card-bio">
+                        <h2 class="sub-text" style="font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;">Étudiant engagé</h2>
+                        <div class="sub-text" style="font-size: 0.9rem; display: grid; gap: 0.5rem;">
+                            <p>Salut, moi c’est Nathan 👋</p>
+                            <p>Je suis passionné par les mathématiques et l'informatique. J’aime apprendre de nouvelles choses et découvrir de nouvelles technologies tout en m'amusant. Mon objectif, devenir un ingénieur en informatique et en cybersécurité.</p>
+                        </div>
+
+                        <a class="action-btn" id="downloadCvBtn" href="Utils/cv.pdf" download style="margin-top: auto; align-self: flex-start; background: rgba(0,0,0,0.1); border-color: rgba(0,0,0,0.15); text-decoration: none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Télécharger mon CV
+                        </a>
+
+                    </article>
+
+                    <!-- CARTE 2 : PHOTO -->
+                    <article class="card theme-image card-photo" role="button" tabindex="0" aria-label="Télécharger la photo de profil"></article>
+
+                    <!-- CARTE 3 : SOCIALS -->
+                    <article class="card theme-blue card-socials">
+                        <div class="socials-grid">
+                            <a href="https://www.linkedin.com/in/nathan-nathan-513387341/" class="social-icon-box" title="LinkedIn" target="_blank" rel="noopener noreferrer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                            <a href="https://github.com/NathanSNB" class="social-icon-box" title="GitHub" target="_blank" rel="noopener noreferrer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="mailto:natsnb68@gmail.com" class="social-icon-box" title="Mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- CARTE 4 : PROJETS -->
+                    <article class="card theme-purple card-projects">
+                        <h2>Projets</h2>
+                        <p class="sub-text">Mes derniers projets</p>
+                        
+                        <ul class="github-list">
+                            <li class="github-item">
+                                <a href="https://www.youtube.com/watch?v=bQwpvN5TBos" target="_blank" rel="noopener noreferrer">Final project du CS50x</a>
+                                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.2rem;">Python / CSS / HTML / SQLite</p>
+                            </li>
+                            <li class="github-item">
+                                <a href="https://github.com/DDX974/Wtsap_Agenda_linked" target="_blank" rel="noopener noreferrer">Développement d'un bot WhatsApp</a>
+                                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.2rem;">NodeJS / DevOps</p>
+                            </li>
+                            <li class="github-item">
+                                <a href="https://github.com/Gitex68/DiscordV2Components" target="_blank" rel="noopener noreferrer">Aide projet d'un bot Discord</a>
+                                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.2rem;">Projet collaboratif</p>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- CARTE 5 : ENGAGEMENTS -->
+                    <article class="card theme-dark card-timeline">
+                        <h2>Engagements</h2>
+                        <p class="sub-text">Mon parcours scolaire.</p>
+                        
+                        <div class="timeline">
+                            <div class="tl-item">
+                                <div class="tl-title">Trésorier à la Maison des Lycéens</div>
+                                <div class="tl-date">Juin 2026 </div>
+                                <div class="tl-desc"></div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-title">Délégué élu au Conseil de la Vie Lycéenne</div>
+                                <div class="tl-date">Oct. 2025 </div>
+                                <div class="tl-desc"></div>
+
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-title">Délégué élu au Conseil d'Administration</div>
+                                <div class="tl-date">Oct. 2025 </div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-title">Ambassadeur pHARe</div>
+                                <div class="tl-date">Janv. 2025 </div>
+                            </div>
+                            
+                        </div>
+                        <div class="tl-desc">Compétences en leadership et communication</div>
+                    </article>
+
+                    <!-- CARTE 6 : CONTACT -->
+                    <article class="card theme-yellow card-contact">
+                        <h2>Mes contacts</h2>
+                        <p class="sub-text" style="margin-bottom: 1.5rem;">Vous trouvez mes moyens de contact ici :)</p>
+                        
+                        <div class="contact-actions">
+                        <button class="action-btn" id="copyEmailBtn" onclick="copyEmail()" style="align-self: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copier mon email
+                        </button>
+
+                        <button class="action-btn" id="copyDiscordBtn" onclick="copyDiscord()" style="align-self: flex-start;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copier mon discord
+                        </button>
+                        </div>
+                    </article>
+
+                    <!-- CARTE 7 : COMPETENCES -->
+                    <article class="card theme-cyan card-skills">
+                        <h2>Compétences et Certifications</h2>
+                        <p class="sub-text">Mon stack technique</p>
+                        
+                        <div class="skills-container">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">HTML / CSS</span>
+                            <span class="skill-tag">LocalGuide Google</span>
+                            <span class="skill-tag">CS50x</span>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer style="width: 100%; max-width: 1100px; margin-top: 1.5rem; padding: 0.85rem 1rem 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; align-items: center; color: rgba(248, 250, 252, 0.7); font-size: 0.9rem; text-align: center;">
+            <p>Développé avec ❤️ par Nathan.</p>
+            <a href="mentions-legales.html" style="color: inherit; text-decoration: none; font-weight: 700;">Mention légale</a>
+        </footer>
+
+    <script>
+        // --- ANIMATION SOURIS (Effet Spotlight) ---
+        // On écoute le mouvement de la souris sur chaque carte pour déplacer le halo lumineux
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // --- TELECHARGEMENT PHOTO DE PROFIL ---
+        const photoCard = document.querySelector('.card-photo');
+        function downloadProfilePhoto() {
+            const link = document.createElement('a');
+            link.href = 'Utils/PP.png';
+            link.download = 'PP.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        photoCard.addEventListener('click', downloadProfilePhoto);
+        photoCard.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                downloadProfilePhoto();
+            }
+        });
+
+        // --- COPY EMAIL FEATURE ---
+        function copyEmail() {
+            const email = "natsnb68@gmail.com"; 
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                const btn = document.getElementById('copyEmailBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Email copié !`;
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            } catch (err) {
+                console.error('Erreur lors de la copie', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function copyDiscord() {
+            const discord = "_mrnathan"; 
+            const textArea = document.createElement("textarea");
+            textArea.value = discord;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                const btn = document.getElementById('copyDiscordBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Discord copié !`;
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            } catch (err) {
+                console.error('Erreur lors de la copie', err);
+            }
+            document.body.removeChild(textArea);
+        }
+    </script>
+</body>
+</html>
